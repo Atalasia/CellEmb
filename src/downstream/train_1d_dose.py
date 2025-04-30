@@ -12,11 +12,6 @@ from datetime import datetime
 import os
 import tqdm
 
-os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-
-torch.cuda.set_device(0)
-torch.cuda.empty_cache()
-
 
 def pearson(x, y):
     x_mean = torch.mean(x)
@@ -191,6 +186,5 @@ def main():
     model, dl = train(params, file_paths)
     infer(model, dl, params)
 
-torch.set_num_interop_threads(15)
-torch.set_num_threads(15)
+
 main()

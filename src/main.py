@@ -17,6 +17,9 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 torch.cuda.set_device(0)
 torch.cuda.empty_cache()
 
+torch.set_num_interop_threads(15)
+torch.set_num_threads(15)
+
 
 def train_epoch(model, dl, lf, device, opt):
 
@@ -83,12 +86,7 @@ def train(params, file_paths):
     device = params["device"]
     learning_rate = params["learning_rate"]
 
-    gdsc_fp = file_paths["gdsc"]
-    prism_p_fp = file_paths["prism_p"]
-    prism_s_fp = file_paths["prism_s"]
-    ctrp_fp = file_paths["ctrp"]
-
-    ds = ContraSet(file_paths["expr"], [gdsc_fp, prism_p_fp, prism_s_fp, ctrp_fp])
+    ds = ContraSet(file_paths["expr"], file_paths["pair_pccs"])
     dl = DataLoader(ds, batch_size=128, shuffle=True, num_workers=0)
 
     model = DrugResponseEmbedder()
@@ -116,10 +114,11 @@ def train(params, file_paths):
 def main():
     file_paths = {
         "expr": "../data/parsed_24q4_expression.tsv",
-        "gdsc": "../data/gdsc_pair_pcc.txt",
-        "prism_p": "../data/prism_primary_pair_pcc.txt",
-        "prism_s": "../data/prism_secondary_pair_pcc.txt",
-        "ctrp": "../data/ctrp_pair_pcc.txt",
+        "pair_pccs": ["../data/gdsc_pair_pcc.txt",
+                      "../data/prism_primary_pair_pcc.txt",
+                      "../data/prism_secondary_pair_pcc.txt",
+                      "../data/ctrp_pair_pcc.txt"
+         ]
     }
 
     local_time = datetime.now().strftime("%Y%M%d_%H:%M:%S")
@@ -137,6 +136,4 @@ def main():
     infer(params, file_paths)
 
 
-torch.set_num_interop_threads(15)
-torch.set_num_threads(15)
 main()
