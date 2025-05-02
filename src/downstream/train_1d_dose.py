@@ -167,7 +167,7 @@ def infer(model, dl, params):
 def main():
     file_paths = {
 
-        "smiles": "../data/ChemBERTa_embedded_smiles.pkl",
+        "smiles": "../data/downstream/ChemBERTa_embedded_smiles.pkl",
         "exprs": "../data/parsed_24q4_expression.tsv",
         "embeds": "../results/lwfd_m2_d1024_embed_0.pt",
         "database": "../data/downstream/gcsi_gr_1.3.txt"

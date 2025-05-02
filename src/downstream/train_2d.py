@@ -167,7 +167,7 @@ def main():
     file_paths = {
         "embeds": "../results/lwfd_m2_d1024_embed_0.pt",
         "exprs": "../data/parsed_24q4_expression.tsv",
-        "smiles": "../data/ChemBERTa_embedded_smiles.pkl",
+        "smiles": "../data/downstream/ChemBERTa_embedded_smiles.pkl",
         "database": "../data/downstream/drugcomb_marsy_criteria_24q4.tsv"
     }
 
