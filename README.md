@@ -3,13 +3,13 @@ Cell line embedding through contrastive learning using drug response correlation
 
 ## Requisite
 
-'''
+```
 pytorch = 2.1.0
 numpy = 1.26.0
 pandas = 2.1.3
 tqdm = 4.66.1
 Python = 3.10
-'''
+```
 
 ## Embedding Process
 
