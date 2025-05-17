@@ -1,5 +1,5 @@
-from dataset_2d import D2Dataset
-from model_2d import Regressor
+from downstream.dataset_2d import D2Dataset
+from downstream.model_2d import Regressor
 
 import torch
 import torch.nn as nn

@@ -1,4 +1,5 @@
-import train_1d_dose, train_2d
+import downstream.train_1d_dose as train_1d_dose
+import downstream.train_2d as train_2d
 import torch
 
 import argparse

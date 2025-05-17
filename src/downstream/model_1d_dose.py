@@ -26,20 +26,20 @@ class Regressor(nn.Module):
 
         self.conv_tower = nn.Sequential(*conv_tower)
 
-        self.pre_mha_norm = nn.LayerNorm(444)
-        self.mha = nn.MultiheadAttention(embed_dim=444, num_heads=12, dropout=0.1, batch_first=True)
+        self.pre_mha_norm = nn.LayerNorm(448)
+        self.mha = nn.MultiheadAttention(embed_dim=448, num_heads=16, dropout=0.1, batch_first=True)
         self.post_tf = Residual(
             nn.Sequential(
-                nn.LayerNorm(444),
-                nn.Linear(444, 888),
+                nn.LayerNorm(448),
+                nn.Linear(448, 896),
                 nn.Dropout(0.1),
                 nn.GELU(),
-                nn.Linear(888, 444),
+                nn.Linear(896, 448),
                 nn.Dropout(0.1)
             )
         )
 
-        self.fc = nn.Sequential(nn.Linear(444, 32),
+        self.fc = nn.Sequential(nn.Linear(448, 32),
                                 nn.GELU(),
                                 nn.Linear(32, 1))
 

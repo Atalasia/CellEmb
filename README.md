@@ -30,11 +30,13 @@ The model uses the gene expression provided by the DepMap consortium. Only cell 
 Once prepared, add the filepath to ```pair_pccs``` list within the ```main()``` function of ```main.py```.
 
 ## Running the Downstream Task
+Run the following process within the ```src``` directory.
 ```
-downstream.py [single|combination] [datafile]
+main_downstream.py [single|combination] [datafile]
 ```
 This process starts the training process for provided dataset.
 
+You need a parsed, tab-delimited gene expression file from DepMap to do so, which can be downloaded from [here](https://drive.google.com/file/d/1e4NqNzeGMrjSK0rtFvV-dhu_A3I6QHqB/view?usp=sharing).
 
 ## Custom Dataset for Downstream Task
 

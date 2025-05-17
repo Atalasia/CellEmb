@@ -1,5 +1,5 @@
-from dataset_1d_dose import D1DoseDataset
-from model_1d_dose import Regressor
+from downstream.dataset_1d_dose import D1DoseDataset
+from downstream.model_1d_dose import Regressor
 
 import torch
 import torch.nn as nn
