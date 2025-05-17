@@ -17,7 +17,9 @@ Python = 3.10
 python main.py 
 ```
 
-Starts embeeding process based on the datafiles listed in main.py. Five previously computed embeddings used in the study is located under results directory, and is available for use.
+Starts embeeding process based on the datafiles listed in main.py. **Five previously computed embeddings used in the study is located under results directory, and is available for use.**
+
+You need a parsed, tab-delimited gene expression file from DepMap to do so, which can be downloaded from [here](https://drive.google.com/file/d/1e4NqNzeGMrjSK0rtFvV-dhu_A3I6QHqB/view?usp=sharing).
 
 ## Creating a Custom Dataset for Embedding
 
